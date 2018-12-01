@@ -1,67 +1,37 @@
-
-function getDiff(students) {
-
-   
-    let list = [students[0].name]; 
-    for (let i = 0; i < students.length; i++) {
-       if(list.indexOf(students[i].name) == -1) {
-             list.push(students[i].name);
-       }
-    
-    }
-
-
-
-    return list;
-}
-
-let student = [
-    {
-        id: 1,
-        name: 'name1'
-    },
-    {
-        id: 100000,
-        name: 'name2'
-        
-    },
-    {
-        id: 2,
-        name: 'name3'
-    },
-    {
-        id: 100000,
-        name: 'name2'
-        
-    },
-    {
-        id: 2,
-        name: 'name1'
-    },
-    {
-        id: 100000,
-        name: 'name2'
-        
-    },
-    {
-        id: 3,
-        name: 'name1'
-    },
-    {
-        id: 4,
-        name: 'name2'
-        
-    }
+const STUDENTS = [
+  {
+    id: 1,
+    name: "Name 1"
+  },
+  {
+    id: 2,
+    name: "Name 1"
+  },
+  {
+    id: 3,
+    name: "Name 2"
+  },
+  {
+    id: 4,
+    name: "Name 1"
+  },
+  {
+    id: 5,
+    name: "Name 4"
+  },
+  {
+    id: 6,
+    name: "Name 3"
+  }
 ];
 
+function getUniqueName(studList) {
+  let list = new Set();
+  studList.forEach(student => list.add(student.name));
 
-alert(getDiff(student));
+  return list;
+}
 
+let students = getUniqueName(STUDENTS);
 
-
-
-
-
-
-
-
+students.forEach(student => alert(student));

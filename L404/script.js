@@ -1,81 +1,39 @@
-
-
-
-function nameFreq(students) {
-
-    let zeroObj =  {
-        
-        
-    }
-    for (let i = 0; i < students.length; i++) {
-        if(zeroObj[students[i].name] == null){
-            zeroObj[students[i].name] = 0;
-        }
-
-        zeroObj[students[i].name]++;
-    }
-     
-    return zeroObj;
-   
-
-}
-
-
-
-let student = [
-    {
-        id: 1,
-        name: 'name1'
-    },
-    {
-        id: 100000,
-        name: 'name2'
-        
-    },
-    {
-        id: 2,
-        name: 'name3'
-    },
-    {
-        id: 100000,
-        name: 'name2'
-        
-    },
-    {
-        id: 2,
-        name: 'name1'
-    },
-    {
-        id: 100000,
-        name: 'name2'
-        
-    },
-    {
-        id: 3,
-        name: 'name1'
-    },
-    {
-        id: 4,
-        name: 'name2'
-        
-    }
+const STUDENTS = [
+  {
+    id: 1,
+    name: "Name 1"
+  },
+  {
+    id: 2,
+    name: "Name 1"
+  },
+  {
+    id: 3,
+    name: "Name 2"
+  },
+  {
+    id: 4,
+    name: "Name 1"
+  },
+  {
+    id: 5,
+    name: "Name 4"
+  },
+  {
+    id: 6,
+    name: "Name 3"
+  }
 ];
 
+function getUniqueName(studList) {
+  let obj = {};
 
+  studList.forEach(student => {
+    let name = student.name;
+    obj[name] = obj[name] ? obj[name] + 1 : 1;
+  });
 
-
-
-let result = nameFreq(student);
-
-
-for( p in result){
-    if(result.hasOwnProperty(p)){
-        alert(p + ': ' + result[p]);
-    }
+  console.log(obj);
 }
 
-
-
-
-
-
+let students = getUniqueName(STUDENTS);
